@@ -7,7 +7,11 @@ import java.util.ArrayList;
 
 public class BookingView implements BookingContract.View {
 
-    private BookingContract.Presenter mPresenter;
+    private final BookingContract.Presenter mPresenter;
+
+    public BookingView() {
+        mPresenter = new BookingPresenter();
+    }
 
     @Override
     public void showRooms() {
@@ -21,6 +25,18 @@ public class BookingView implements BookingContract.View {
             System.out.println("Price     : " + room.price);
             System.out.println();
         }
+
+
+        // Pesan Room by Ahmad
+//        String customerName = "Ahmad Syaepuloh";
+//        // Room dibooking oleh si ahmad
+//        mPresenter.bookingRoom(customerName, rooms.get(0));
+//
+//        // Check type room yang dipesan ahmad
+//        Room roomBookedByCustomer = mPresenter.getCurrentCustomerBooked(customerName);
+//        System.out.println("No Room   : " + roomBookedByCustomer.noRoom);
+//        System.out.println("Room Type : " + roomBookedByCustomer.type);
+//        System.out.println("Price     : " + roomBookedByCustomer.price);
     }
 
     @Override
@@ -34,7 +50,7 @@ public class BookingView implements BookingContract.View {
     }
 
     @Override
-    public void setPresenter(BookingContract.Presenter presenter) {
-        mPresenter = new BookingPresenter();
+    public void onCreate() {
+
     }
 }

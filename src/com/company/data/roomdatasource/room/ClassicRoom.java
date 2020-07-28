@@ -1,4 +1,6 @@
-package com.company.data.roomdatasource;
+package com.company.data.roomdatasource.room;
+
+import com.company.data.roomdatasource.Room;
 
 public class ClassicRoom extends Room {
 

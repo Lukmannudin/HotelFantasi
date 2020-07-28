@@ -1,5 +1,9 @@
 package com.company.data.roomdatasource;
 
+import com.company.data.roomdatasource.room.ClassicRoom;
+import com.company.data.roomdatasource.room.ModernRoom;
+import com.company.data.roomdatasource.room.RoyalRoom;
+
 import java.util.ArrayList;
 import java.util.Random;
 

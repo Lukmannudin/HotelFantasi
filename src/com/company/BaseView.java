@@ -1,5 +1,5 @@
 package com.company;
 
-public interface BaseView<T> {
-    void setPresenter(T presenter);
+public interface BaseView {
+    void onCreate();
 }

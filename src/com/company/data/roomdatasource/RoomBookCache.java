@@ -12,13 +12,18 @@ public class RoomBookCache {
     }
 
     public Room get(String key) {
-        return cache.get(key).clone();
+        try {
+            return cache.get(key).clone();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public Room delete(String key){
+    public Room delete(String key) {
         Room room = cache.get(key).clone();
 
-        if (room != null){
+        if (room != null) {
             cache.remove(room);
         }
         return room;

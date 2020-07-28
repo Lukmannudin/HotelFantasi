@@ -1,6 +1,6 @@
 package com.company.data;
 
-public class CustomerDetail {
+public class Customer {
     private int idCustomer;
     private String name;
     private String mobileNumber;
@@ -8,7 +8,7 @@ public class CustomerDetail {
     private int age;
     private String gender;
 
-    public CustomerDetail(int idCustomer, String name, String mobileNumber, String email, int age, String gender) {
+    public Customer(int idCustomer, String name, String mobileNumber, String email, int age, String gender) {
         this.idCustomer = idCustomer;
         this.name = name;
         this.mobileNumber = mobileNumber;
