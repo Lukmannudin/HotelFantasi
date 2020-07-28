@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.booking.BookingView;
-import com.company.data.roomdatasource.RoomData;
 
 public class Main {
 

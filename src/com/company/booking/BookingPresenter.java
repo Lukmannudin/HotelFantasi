@@ -1,6 +1,6 @@
 package com.company.booking;
 
-import com.company.data.Room;
+import com.company.data.roomdatasource.Room;
 import com.company.data.roomdatasource.RoomData;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class BookingPresenter implements BookingContract.Presenter {
     }
 
     @Override
-    public void addNewRoom() {
+    public void bookRoom() {
 
     }
 

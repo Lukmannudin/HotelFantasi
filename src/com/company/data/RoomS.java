@@ -1,11 +1,11 @@
 package com.company.data;
 
-public class Room {
+public class RoomS {
     private int noRoom;
     private String type;
     private int price;
 
-    public Room(int noRoom, String type, int price) {
+    public RoomS(int noRoom, String type, int price) {
         this.noRoom = noRoom;
         this.type = type;
         this.price = price;

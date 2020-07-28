@@ -1,6 +1,6 @@
 package com.company.booking;
 
-import com.company.data.Room;
+import com.company.data.roomdatasource.Room;
 import com.company.data.roomdatasource.RoomData;
 
 import java.util.ArrayList;
@@ -16,9 +16,10 @@ public class BookingView implements BookingContract.View {
 
         System.out.println("TAMPILAN BOOKING");
         for (Room room : rooms) {
-            System.out.println("No Room   : " + room.getNoRoom());
-            System.out.println("Room Type : " + room.getType());
-            System.out.println("Price     : " + room.getPrice());
+            System.out.println("No Room   : " + room.noRoom);
+            System.out.println("Room Type : " + room.type);
+            System.out.println("Price     : " + room.price);
+            System.out.println();
         }
     }
 
