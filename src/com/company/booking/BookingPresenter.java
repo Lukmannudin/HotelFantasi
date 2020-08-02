@@ -8,8 +8,25 @@ import java.util.ArrayList;
 
 public class BookingPresenter implements BookingContract.Presenter {
 
+    private final RoomBookCache roomBookCache = new RoomBookCache();
+    //Command Pattern
+    BookingCommand bookingCommand = new BookingCommand() {
+        @Override
+        public boolean bookUp(String customerName, Room room) {
+            if (roomBookCache.isAvailable(room.noRoom)) {
+                roomBookCache.put(customerName, room);
+                return true;
+            }
+
+            return false;
+        }
+
+        @Override
+        public boolean cancel(String customerName) {
+            return roomBookCache.delete(customerName);
+        }
+    };
     private ArrayList<Room> rooms;
-    private RoomBookCache roomBookCache = new RoomBookCache();
 
     @Override
     public ArrayList<Room> getRooms() {
@@ -22,8 +39,8 @@ public class BookingPresenter implements BookingContract.Presenter {
     }
 
     @Override
-    public void bookingRoom(String customerName, Room room) {
-        roomBookCache.put(customerName, room);
+    public boolean bookingRoom(String customerName, Room room) {
+        return bookingCommand.bookUp(customerName, room);
     }
 
     @Override
@@ -40,4 +57,15 @@ public class BookingPresenter implements BookingContract.Presenter {
     public Room getCurrentCustomerBooked(String customerName) {
         return roomBookCache.get(customerName);
     }
+
+    @Override
+    public ArrayList<Room> getBookedRooms() {
+        return roomBookCache.getAllBooked();
+    }
+
+    @Override
+    public boolean cancel(String customerName) {
+        return bookingCommand.cancel(customerName);
+    }
+
 }

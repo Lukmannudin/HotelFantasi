@@ -11,6 +11,7 @@ public class BookingView implements BookingContract.View {
 
     public BookingView() {
         mPresenter = new BookingPresenter();
+        mPresenter.start();
     }
 
     @Override
@@ -28,16 +29,40 @@ public class BookingView implements BookingContract.View {
 
 
         // Pesan Room by Ahmad
-//        String customerName = "Ahmad Syaepuloh";
-//        // Room dibooking oleh si ahmad
-//        mPresenter.bookingRoom(customerName, rooms.get(0));
-//
-//        // Check type room yang dipesan ahmad
-//        Room roomBookedByCustomer = mPresenter.getCurrentCustomerBooked(customerName);
-//        System.out.println("No Room   : " + roomBookedByCustomer.noRoom);
-//        System.out.println("Room Type : " + roomBookedByCustomer.type);
-//        System.out.println("Price     : " + roomBookedByCustomer.price);
+        // Room dibooking oleh si ahmad
+        mPresenter.bookingRoom("Ahmad Syaepuloh", rooms.get(0));
+        mPresenter.bookingRoom("Cihuahua", rooms.get(1));
+
+        // Check type room yang dipesan ahmad
+        Room roomBookedByCustomer = mPresenter.getCurrentCustomerBooked("Ahmad Syaepuloh");
+        System.out.println("No Room   : " + roomBookedByCustomer.noRoom);
+        System.out.println("Room Type : " + roomBookedByCustomer.type);
+        System.out.println("Price     : " + roomBookedByCustomer.price);
+
+        System.out.println("Yang Sudah dibooking");
+        ArrayList<Room> bookedRoom = mPresenter.getBookedRooms();
+        for (Room room : bookedRoom) {
+            System.out.println("Booked Room No: " + room.noRoom);
+        }
+
+        // Jika booking room yang sudah terbook
+        System.out.println("Booking room No 1 " +
+                mPresenter.bookingRoom("Asep ", bookedRoom.get(0)));
+
+        // Jika booking room yang sudah belumterbook
+        System.out.println("Booking room No 1 " +
+                mPresenter.bookingRoom("Zaenal ", rooms.get(3)));
+
+        // cancel booking yang bukan miliknya
+        System.out.println("Cancel Booking room No 1 " +
+                mPresenter.cancel("Kapro"));
+
+        // cancle booking miliknya
+        System.out.println("Cancel Booking room No 1 " +
+                mPresenter.cancel("Ahmad Syaepuloh"));
+
     }
+
 
     @Override
     public void showRoom() {

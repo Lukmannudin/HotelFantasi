@@ -1,5 +1,6 @@
 package com.company.data.roomdatasource;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +21,31 @@ public class RoomBookCache {
         return null;
     }
 
-    public Room delete(String key) {
-        Room room = cache.get(key).clone();
-
-        if (room != null) {
-            cache.remove(room);
+    public boolean delete(String key) {
+        if (isCustomerBookExist(key)) {
+            cache.remove(key);
+            return true;
         }
-        return room;
+        return false;
     }
+
+    public ArrayList<Room> getAllBooked() {
+        ArrayList<Room> rooms = new ArrayList<>();
+        for (String key : cache.keySet()) {
+            rooms.add(cache.get(key));
+        }
+        return rooms;
+    }
+
+    public boolean isAvailable(int noRoom) {
+        for (String key : cache.keySet()) {
+            if (cache.get(key).noRoom == noRoom) return false;
+        }
+        return true;
+    }
+
+    public boolean isCustomerBookExist(String customerName) {
+        return cache.get(customerName) != null;
+    }
+
 }

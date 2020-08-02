@@ -19,9 +19,13 @@ public interface BookingContract {
     interface Presenter extends BasePresenter {
         void result(int requestCode, int resultCode);
 
-        void bookingRoom(String customerName, Room room);
+        boolean cancel(String customerName);
+
+        boolean bookingRoom(String customerName, Room room);
 
         void roomFilter(String filter);
+
+        ArrayList<Room> getBookedRooms();
 
         Room getCurrentCustomerBooked(String customerName);
 
