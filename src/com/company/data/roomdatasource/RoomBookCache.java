@@ -29,12 +29,16 @@ public class RoomBookCache {
         return false;
     }
 
-    public ArrayList<Room> getAllBooked() {
+    public ArrayList<Room> getAllBookedRoom() {
         ArrayList<Room> rooms = new ArrayList<>();
         for (String key : cache.keySet()) {
             rooms.add(cache.get(key));
         }
         return rooms;
+    }
+
+    public Map<String, Room> getAllBookedRoomWithCustumerNames() {
+        return cache;
     }
 
     public boolean isAvailable(int noRoom) {

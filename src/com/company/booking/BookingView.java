@@ -27,7 +27,6 @@ public class BookingView implements BookingContract.View {
             System.out.println();
         }
 
-
         // Pesan Room by Ahmad
         // Room dibooking oleh si ahmad
         mPresenter.bookingRoom("Ahmad Syaepuloh", rooms.get(0));
@@ -50,7 +49,7 @@ public class BookingView implements BookingContract.View {
                 mPresenter.bookingRoom("Asep ", bookedRoom.get(0)));
 
         // Jika booking room yang sudah belumterbook
-        System.out.println("Booking room No 1 " +
+        System.out.println("Booking room No 4 " +
                 mPresenter.bookingRoom("Zaenal ", rooms.get(3)));
 
         // cancel booking yang bukan miliknya
