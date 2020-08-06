@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersCollectionImpl implements CustomerCollection {
-    private final List<Customer> customersList;
 
     public CustomersCollectionImpl() {
-        customersList = new ArrayList<>();
     }
 
 

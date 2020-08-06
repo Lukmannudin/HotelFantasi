@@ -19,10 +19,6 @@ public class CustomerPresenter implements CustomerContract.Presenter {
         ListOrder.addOrder();
     }
 
-    @Override
-    public void checkIn(String customerName) {
-
-    }
 
     @Override
     public ArrayList<Customer> getMemberCustomers() {

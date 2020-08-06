@@ -38,8 +38,6 @@ public class Customer {
         this.gender = Gender;
     }
 
-    public String gettypeNameCustomer() { return typeNameCustomer; }
-
     public String getName(){ return name;}
 
 

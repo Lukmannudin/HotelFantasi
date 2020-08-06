@@ -19,8 +19,6 @@ public interface CustomerContract {
 
         void orderMenu();
 
-        void checkIn(String customerName);
-
         ArrayList<Customer> getMemberCustomers();
         ArrayList<Customer> getGuestCustomers();
     }

@@ -30,9 +30,7 @@ public class CustomerView implements CustomerContract.View {
         bookingPresenter.bookingRoom("Jack", rooms.get(7));
         bookingPresenter.bookingRoom("Michael", rooms.get(20));
 
-        for(String key : customer.keySet()){
-            customerName.add(key);
-        }
+        customerName.addAll(customer.keySet());
     }
 
     @Override

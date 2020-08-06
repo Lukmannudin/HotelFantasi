@@ -1,6 +1,5 @@
 package com.company.data.customerdatasource.customer;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CustomerByType implements TypeCustomerFactory {
