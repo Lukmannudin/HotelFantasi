@@ -1,11 +1,11 @@
 package com.company.data.paymentmethodsdatasource;
 
-public class ServiceBills implements Bills {
+public class AdditionalBills implements Bills {
 
     private PaymentMethods paymentMethod;
     private int billAmount;
 
-    public ServiceBills(int billAmount, PaymentMethods paymentMethod){
+    public AdditionalBills(int billAmount, PaymentMethods paymentMethod){
         setBillAmount(billAmount);
         setPaymentMethod(paymentMethod);
     }

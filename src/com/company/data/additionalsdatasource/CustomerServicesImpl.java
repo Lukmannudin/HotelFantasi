@@ -1,27 +1,27 @@
-package com.company.data.servicesdatasource;
+package com.company.data.additionalsdatasource;
 
 public class CustomerServicesImpl implements CustomerServices {
 
     @Override
-    public int visit(AdditionalService additionalService) {
+    public int visit(Additional additional) {
         int cost = 0;
-        String service = additionalService.getService();
+        String service = additional.getService();
         switch (service) {
             case "Pools": {
                 int price = 200000;
-                int time = additionalService.getTime();
+                int time = additional.getTime();
                 cost = price * time;
                 break;
             }
             case "Rental Car": {
                 int price = 300000;
-                int time = additionalService.getTime();
+                int time = additional.getTime();
                 cost = price * time;
                 break;
             }
             case "Spa": {
                 int price = 150000;
-                int time = additionalService.getTime();
+                int time = additional.getTime();
                 cost = price * time;
                 break;
             }
@@ -30,7 +30,7 @@ public class CustomerServicesImpl implements CustomerServices {
     }
 
     @Override
-    public int visit(FoodService foodService) {
+    public int visit(Food foodService) {
         int cost = 0;
 
         String food = foodService.getFood();

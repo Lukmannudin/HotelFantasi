@@ -3,7 +3,7 @@ package com.company.payment;
 import com.company.booking.BookingContract;
 import com.company.booking.BookingPresenter;
 import com.company.data.paymentmethodsdatasource.*;
-import com.company.data.servicesdatasource.*;
+import com.company.data.additionalsdatasource.*;
 import com.company.data.roomdatasource.Room;
 import com.company.data.roomdatasource.RoomData;
 
@@ -19,17 +19,17 @@ public class PaymentView implements PaymentContract.View {
 
     public static final Random randomGenerator = new Random();
 
-    public int total,totalService,paymentNum;
+    public int total, totalAdditional,paymentNum;
 
     PaymentMethods paymentMethod;
 
-    Bills[] serviceBills,roomBills;
+    Bills[] additionalBills,roomBills;
 
     List<String> customerName = new ArrayList<>();
     List<String> customerRoomType = new ArrayList<>();
     List<String> customerPaymentMethod = new ArrayList<>();
-    List<String> customerServices = new ArrayList<>();
-    List<String> foodServices = new ArrayList<>();
+    List<String> additional = new ArrayList<>();
+    List<String> food = new ArrayList<>();
 
     List<Integer> customerRoomNumber = new ArrayList<>();
     List<Integer> customerPrice = new ArrayList<>();
@@ -50,13 +50,13 @@ public class PaymentView implements PaymentContract.View {
 
         ArrayList<Room> bookedRoom = bookingPresenter.getBookedRooms();
 
-        customerServices.add("Pools");
-        customerServices.add("Rental Car");
-        customerServices.add("Spa");
+        additional.add("Pools");
+        additional.add("Rental Car");
+        additional.add("Spa");
 
-        foodServices.add("Nasi Goreng Spesial");
-        foodServices.add("Pizza");
-        foodServices.add("Spaghetti");
+        food.add("Nasi Goreng Spesial");
+        food.add("Pizza");
+        food.add("Spaghetti");
 
         customerPaymentMethod.add("Cash");
         customerPaymentMethod.add("Credit");
@@ -65,23 +65,23 @@ public class PaymentView implements PaymentContract.View {
 
         for (Room room : bookedRoom) {
             //implementasi visitor pattern
-            Services[] services = new Services[]{
+            RoomServices[] services = new RoomServices[]{
 
-                    new AdditionalService(customerServices.get(randomGenerator.nextInt(customerServices.size()))
+                    new Additional(additional.get(randomGenerator.nextInt(additional.size()))
                             , randomGenerator.nextInt(5)),
-                    new AdditionalService(customerServices.get(randomGenerator.nextInt(customerServices.size()))
+                    new Additional(additional.get(randomGenerator.nextInt(additional.size()))
                             , randomGenerator.nextInt(5)),
 
-                    new FoodService(foodServices.get(randomGenerator.nextInt(foodServices.size()))
+                    new Food(food.get(randomGenerator.nextInt(food.size()))
                             , randomGenerator.nextInt(5)),
-                    new FoodService(foodServices.get(randomGenerator.nextInt(foodServices.size()))
+                    new Food(food.get(randomGenerator.nextInt(food.size()))
                             , randomGenerator.nextInt(5))
             };
 
-            totalService = paymentPresenter.calculatePrice(services);
-            total = totalService + room.price;
+            totalAdditional = paymentPresenter.calculatePrice(services);
+            total = totalAdditional + room.price;
 
-            totalServices.add(totalService);
+            totalServices.add(totalAdditional);
             roomPrice.add(room.price);
 
             customerRoomNumber.add(room.noRoom);
@@ -114,8 +114,8 @@ public class PaymentView implements PaymentContract.View {
                 paymentMethod = new PointsPayment();
             }
 
-            serviceBills = new Bills[]{
-                    new ServiceBills(totalServices.get(customer), paymentMethod)
+            additionalBills = new Bills[]{
+                    new AdditionalBills(totalServices.get(customer), paymentMethod)
             };
 
             roomBills = new Bills[]{
@@ -145,7 +145,7 @@ public class PaymentView implements PaymentContract.View {
             System.out.println("=============================================");
 
             //implementasi bridge pattern
-            for(Bills bill: serviceBills){
+            for(Bills bill: additionalBills){
                 bill.pay();
             }
 

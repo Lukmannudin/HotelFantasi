@@ -1,11 +1,11 @@
-package com.company.data.servicesdatasource;
+package com.company.data.additionalsdatasource;
 
-public class FoodService implements Services {
+public class Food implements RoomServices {
 
     private final String food;
     private final int portion;
 
-    public FoodService(String food, int portion) {
+    public Food(String food, int portion) {
         this.food = food;
         this.portion = portion;
     }

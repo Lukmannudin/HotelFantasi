@@ -2,8 +2,7 @@ package com.company.payment;
 
 import com.company.BasePresenter;
 import com.company.BaseView;
-import com.company.data.paymentmethodsdatasource.PaymentMethods;
-import com.company.data.servicesdatasource.Services;
+import com.company.data.additionalsdatasource.RoomServices;
 
 public interface PaymentContract {
     interface View extends BaseView{
@@ -19,7 +18,7 @@ public interface PaymentContract {
 
         Payment customerPayment(String customerName, int roomNumber, String type, int totalPayment, String paymentMethod);
 
-        int calculatePrice(Services[] services);
+        int calculatePrice(RoomServices[] services);
 
     }
 }

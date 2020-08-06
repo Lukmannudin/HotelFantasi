@@ -1,11 +1,11 @@
-package com.company.data.servicesdatasource;
+package com.company.data.additionalsdatasource;
 
-public class AdditionalService implements Services {
+public class Additional implements RoomServices {
 
     private final String Service;
     private final int time;
 
-    public AdditionalService(String service, int time) {
+    public Additional(String service, int time) {
         Service = service;
         this.time = time;
     }
