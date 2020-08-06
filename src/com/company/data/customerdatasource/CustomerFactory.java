@@ -8,11 +8,11 @@ public class CustomerFactory extends CustomerAbstractFactory{
 
     @Override
     public TypeCustomerFactory getTypeCustomer(String typeName) {
+        CheckInCustomer checkInCustomer = new CheckInCustomer();
+        CustomerCollection containerCustomer = checkInCustomer.CheckIn();
+
         if(typeName.equals("MEMBER")){
             MemberFactory memberFactory = new MemberFactory();
-
-            CheckInCustomer checkInCustomer = new CheckInCustomer();
-            CustomerCollection containerCustomer = checkInCustomer.CheckIn();
 
 
             System.out.println("MEMBER TYPE");
@@ -25,9 +25,6 @@ public class CustomerFactory extends CustomerAbstractFactory{
             //return new MemberFactory();
         }else if(typeName.equals("GUESS")){
             GuessFactory guessFactory = new GuessFactory();
-
-            CheckInCustomer checkInCustomer = new CheckInCustomer();
-            CustomerCollection containerCustomer = checkInCustomer.CheckIn();
 
             System.out.println("\n\nGUESS TYPE");
             System.out.println("================");

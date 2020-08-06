@@ -1,13 +1,13 @@
 package com.company.data.customerdatasource;
 
 public class Customers {
-    private String idCustomer;
-    private String name;
-    private String mobileNumber;
-    private String email;
-    private int age;
-    private String gender;
-    String typeNameCustomer;
+    private final String idCustomer;
+    private final String name;
+    private final String mobileNumber;
+    private final String email;
+    private final int age;
+    private final String gender;
+    private final String typeNameCustomer;
 
     public Customers(String type, String ID, String Name, String phone, String Email, int Age, String Gender) {
         this.typeNameCustomer = type;

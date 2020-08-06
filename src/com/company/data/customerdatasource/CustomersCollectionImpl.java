@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersCollectionImpl implements CustomerCollection {
-    private List<Customers> customersList;
+    private final List<Customers> customersList;
 
     public CustomersCollectionImpl() {
         customersList = new ArrayList<>();
@@ -20,10 +20,10 @@ public class CustomersCollectionImpl implements CustomerCollection {
         return new CustomersIteratorImpl(typeNameCustomer, this.customersList);
     }
 
-    private class CustomersIteratorImpl implements CustomerIterator {
+    private static class CustomersIteratorImpl implements CustomerIterator {
 
-        private String typeNameCustomer;
-        private List<Customers> customers;
+        private final String typeNameCustomer;
+        private final List<Customers> customers;
         private int position;
 
         public CustomersIteratorImpl(String typeNameCustomer,
