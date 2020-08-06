@@ -2,6 +2,9 @@ package com.company.booking;
 
 import com.company.data.roomdatasource.Room;
 import com.company.data.roomdatasource.RoomData;
+import com.company.data.roomdatasource.room.ClassicRoom;
+import com.company.data.roomdatasource.room.ModernRoom;
+import com.company.data.roomdatasource.room.RoyalRoom;
 
 import java.util.ArrayList;
 
@@ -21,6 +24,14 @@ public class BookingView implements BookingContract.View {
 
         System.out.println("TAMPILAN BOOKING");
         for (Room room : rooms) {
+            if (room instanceof ClassicRoom){
+                System.out.println("Classic");
+            } else if (room instanceof ModernRoom){
+                System.out.println("Modern");
+            } else if (room instanceof RoyalRoom){
+                System.out.println("Royal");
+            }
+
             System.out.println("No Room   : " + room.noRoom);
             System.out.println("Room Type : " + room.type);
             System.out.println("Price     : " + room.price);
@@ -54,11 +65,11 @@ public class BookingView implements BookingContract.View {
                 mPresenter.bookingRoom("Zaenal ", rooms.get(3)));
 
         // cancel booking yang bukan miliknya
-        System.out.println("Cancel Booking room No 1 " +
+        System.out.println("Cancel Booking atas nama kapro" +
                 mPresenter.cancel("Kapro"));
 
         // cancle booking miliknya
-        System.out.println("Cancel Booking room No 1 " +
+        System.out.println("Cancel Booking atas nama ahmad syapuloh" +
                 mPresenter.cancel("Ahmad Syaepuloh"));
 
     }

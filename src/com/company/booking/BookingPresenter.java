@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class BookingPresenter implements BookingContract.Presenter {
 
     private final RoomBookCache roomBookCache = new RoomBookCache();
+
     //Command Pattern
     BookingCommand bookingCommand = new BookingCommand() {
         @Override
@@ -26,6 +27,7 @@ public class BookingPresenter implements BookingContract.Presenter {
             return roomBookCache.delete(customerName);
         }
     };
+
     private ArrayList<Room> rooms;
 
     @Override
@@ -60,7 +62,7 @@ public class BookingPresenter implements BookingContract.Presenter {
 
     @Override
     public ArrayList<Room> getBookedRooms() {
-        return roomBookCache.getAllBooked();
+        return roomBookCache.getAllBookedRoom();
     }
 
     @Override
