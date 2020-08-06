@@ -1,5 +1,8 @@
 package com.company.data.customerdatasource;
 
+
+import com.company.data.customerdatasource.customer.TypeCustomerFactory;
+
 public abstract class CustomerAbstractFactory {
-    public abstract ICustomerType getCustomer(String customerType);
+    abstract TypeCustomerFactory getTypeCustomer(String typeName);
 }
