@@ -5,6 +5,7 @@ import com.company.data.roomdatasource.RoomBookCache;
 import com.company.data.roomdatasource.RoomData;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class BookingPresenter implements BookingContract.Presenter {
 
@@ -33,6 +34,11 @@ public class BookingPresenter implements BookingContract.Presenter {
     @Override
     public ArrayList<Room> getRooms() {
         return rooms;
+    }
+
+    @Override
+    public Map<String, Room> getCustomerNames() {
+        return roomBookCache.getAllBookedRoomWithCustumerNames();
     }
 
     @Override

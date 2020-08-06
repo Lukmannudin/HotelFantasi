@@ -5,6 +5,7 @@ import com.company.BaseView;
 import com.company.data.roomdatasource.Room;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BookingContract {
     interface View extends BaseView {
@@ -30,5 +31,7 @@ public interface BookingContract {
         Room getCurrentCustomerBooked(String customerName);
 
         ArrayList<Room> getRooms();
+
+        Map<String, Room> getCustomerNames();
     }
 }

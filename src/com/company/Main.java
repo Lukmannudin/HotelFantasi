@@ -2,7 +2,7 @@ package com.company;
 
 import com.company.booking.BookingView;
 import com.company.customer.CustomerView;
-import com.company.notifer.*;
+import com.company.payment.PaymentView;
 
 public class Main {
 
@@ -16,6 +16,10 @@ public class Main {
         customerView.showCheckInRoom();
         customerView.showListOrder();
 
+        PaymentView paymentView = new PaymentView();
+        paymentView.showCustomerList();
+        paymentView.showTotalServices();
+        paymentView.showPaid();
 //        NotificationDecorator sendNotif = new NotificationDecorator();
 //        sendNotif = new SMSNotification(sendNotif);
 //        sendNotif = new WhatsappNotification(sendNotif);
