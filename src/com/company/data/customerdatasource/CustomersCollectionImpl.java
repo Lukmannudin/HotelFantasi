@@ -1,52 +1,49 @@
 package com.company.data.customerdatasource;
 
+import com.company.data.customerdatasource.customer.Customer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersCollectionImpl implements CustomerCollection {
-    private final List<Customers> customersList;
+    private final List<Customer> customersList;
 
     public CustomersCollectionImpl() {
         customersList = new ArrayList<>();
     }
 
-    @Override
-    public void addCustomersCheckIn(Customers customers) {
-        this.customersList.add(customers);
-    }
 
     @Override
-    public CustomerIterator getListCustomers(String typeNameCustomer) {
-        return new CustomersIteratorImpl(typeNameCustomer, this.customersList);
+    public CustomerIterator getListCustomers(ArrayList<Customer> customers) {
+        return new CustomersIteratorImpl(customers);
     }
+
 
     private static class CustomersIteratorImpl implements CustomerIterator {
 
-        private final String typeNameCustomer;
-        private final List<Customers> customers;
+        private final List<Customer> customers;
         private int position;
 
-        public CustomersIteratorImpl(String typeNameCustomer,
-                                     List<Customers> iteratorCustomerList) {
-            this.typeNameCustomer = typeNameCustomer;
+        public CustomersIteratorImpl(List<Customer> iteratorCustomerList) {
             this.customers = iteratorCustomerList;
         }
 
         @Override
         public boolean hasNext() {
-            while (position < customers.size()) {
-                Customers listCustomers = customers.get(position);
-                if (listCustomers.gettypeNameCustomer().equals(typeNameCustomer)) {
-                    return true;
-                } else
-                    position++;
+            try {
+                if (position < customers.size()) {
+                    Customer customer = customers.get(position);
+                    return customer != null;
+                }
+                return false;
+            } catch (Exception e){
+                return false;
             }
-            return false;
         }
 
         @Override
-        public Customers next() {
-            Customers customers1 = customers.get(position);
+        public Customer next() {
+            Customer customers1 = customers.get(position);
             position++;
             return customers1;
         }

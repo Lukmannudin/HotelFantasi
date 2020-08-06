@@ -1,6 +1,9 @@
 package com.company.data.customerdatasource;
 
+import com.company.data.customerdatasource.customer.Customer;
+
+import java.util.ArrayList;
+
 public interface CustomerCollection {
-    void addCustomersCheckIn(Customers customers);
-    CustomerIterator getListCustomers(String typeNameCustomer);
+    CustomerIterator getListCustomers(ArrayList<Customer> customers);
 }

@@ -2,6 +2,9 @@ package com.company.customer;
 
 import com.company.BasePresenter;
 import com.company.BaseView;
+import com.company.data.customerdatasource.customer.Customer;
+
+import java.util.ArrayList;
 
 public interface CustomerContract {
     interface View extends BaseView {
@@ -16,8 +19,9 @@ public interface CustomerContract {
 
         void orderMenu();
 
-        //ArrayList<Room> getRooms();
+        void checkIn(String customerName);
 
-        //ArrayList<CustomerFactory> getCostumers();
+        ArrayList<Customer> getMemberCustomers();
+        ArrayList<Customer> getGuestCustomers();
     }
 }
