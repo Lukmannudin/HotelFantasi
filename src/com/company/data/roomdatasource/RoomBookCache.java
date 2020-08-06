@@ -37,7 +37,7 @@ public class RoomBookCache {
         return rooms;
     }
 
-    public Map<String, Room>   getAllBookedRoomWithCustumeNames() {
+    public Map<String, Room>  getAllBookedRoomWithCustumerNames() {
         return cache;
     }
 

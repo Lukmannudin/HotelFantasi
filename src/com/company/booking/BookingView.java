@@ -5,6 +5,10 @@ import com.company.data.roomdatasource.RoomData;
 import com.company.data.roomdatasource.room.ClassicRoom;
 import com.company.data.roomdatasource.room.ModernRoom;
 import com.company.data.roomdatasource.room.RoyalRoom;
+import com.company.notifer.EmailNotification;
+import com.company.notifer.NotificationDecorator;
+import com.company.notifer.SMSNotification;
+import com.company.notifer.WhatsappNotification;
 
 import java.util.ArrayList;
 
@@ -71,6 +75,13 @@ public class BookingView implements BookingContract.View {
         System.out.println("Cancel Booking atas nama ahmad syapuloh" +
                 mPresenter.cancel("Ahmad Syaepuloh"));
 
+                NotificationDecorator sendNotif = new NotificationDecorator();
+        sendNotif = new SMSNotification(sendNotif);
+        sendNotif = new WhatsappNotification(sendNotif);
+        sendNotif = new EmailNotification(sendNotif);
+        System.out.println(sendNotif.description);
+
+        sendNotif.send("sa");
     }
 
 
